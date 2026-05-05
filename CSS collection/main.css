@@ -11,9 +11,13 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  padding-top: 200px;
+  padding-right: 50px;
+  overflow: scroll;
   
  font-family: "Jacquarda Bastarda 9", serif;
     font-weight: 400;
     font-style: normal; 
   color: var(--text-dark);
 }
+

@@ -3,6 +3,7 @@
   --text-dark: #333333;
   --accent-blue: #4a4ae2;
 }
+
 .text-wrapper {
   display: flex;
   flex-direction: column;
@@ -25,7 +26,7 @@
   margin-right: 15px;
 }
 
-.main-body p {
+.main-body {
   margin: 2px 0;
   font-size: 1.2rem;
 }
@@ -40,85 +41,3 @@
   font-weight: bold;
 }
 
-/* ── PORTAL WORD ── */
-.portal-word {
-  position: relative;
-  display: inline-block;
-  cursor: pointer;
-  text-decoration: none;
-  color: inherit;
-
-  background-image: linear-gradient(var(--accent-blue), var(--accent-blue));
-  background-size: 100% 1px;
-  background-repeat: no-repeat;
-  background-position: 0 100%;
-  transition: background-size 0.35s ease, color 0.25s ease;
-}
-
-/* tooltip panel */
-.portal-word::after {
-  content: attr(data-dest);
-  position: absolute;
-  bottom: calc(100% + 14px);
-  left: 50%;
-  transform: translateX(-50%) translateY(6px);
-  white-space: nowrap;
-
-  background: var(--text-dark);
-  color: var(--bg-color);
-  font-size: 0.72rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  padding: 6px 14px 5px;
-
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.22s ease, transform 0.22s ease;
-}
-
-/* arrow below tooltip */
-.portal-word::before {
-  content: '';
-  position: absolute;
-  bottom: calc(100% + 6px);
-  left: 50%;
-  transform: translateX(-50%) translateY(6px);
-  border: 5px solid transparent;
-  border-top-color: var(--text-dark);
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.22s ease, transform 0.22s ease;
-}
-
-.portal-word:hover {
-  color: var(--accent-blue);
-  background-size: 100% 2px;
-}
-
-.portal-word:hover::after,
-.portal-word:hover::before {
-  opacity: 1;
-  transform: translateX(-50%) translateY(0);
-}
-
-/* crack lines radiating from word on hover */
-.portal-word .crack {
-  position: absolute;
-  top: 50%; left: 50%;
-  width: 0; height: 1px;
-  background: var(--accent-blue);
-  transform-origin: left center;
-  opacity: 0;
-  transition: width 0.3s ease, opacity 0.3s ease;
-  pointer-events: none;
-}
-.portal-word .crack:nth-child(1) { transform: rotate(-35deg)  translateY(-1px); transition-delay: 0.02s; }
-.portal-word .crack:nth-child(2) { transform: rotate(20deg)   translateY(-1px); transition-delay: 0.04s; }
-.portal-word .crack:nth-child(3) { transform: rotate(-15deg)  translateY(-1px); transition-delay: 0.06s; }
-.portal-word .crack:nth-child(4) { transform: rotate(55deg)   translateY(-1px); transition-delay: 0.03s; }
-.portal-word .crack:nth-child(5) { transform: rotate(-60deg)  translateY(-1px); transition-delay: 0.05s; }
-
-.portal-word:hover .crack {
-  width: 28px;
-  opacity: 0.45;
-}
